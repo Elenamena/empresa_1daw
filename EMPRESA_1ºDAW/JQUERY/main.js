@@ -6,7 +6,9 @@ const listUsers=()=> {
         contentType: 'application/json',
         async: true,
         success: function(data) {},
-        error: function(error) {}
+        error: function(error) {
+            alert('Error al obtener los usuarios');
+        }
     })
 };
 
