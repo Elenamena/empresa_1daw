@@ -13,6 +13,8 @@ const listUsers = () => {
                     `<li><strong>${usuario.name}</strong> (${usuario.email})</li>`
                 );
             });
+            
+            $('#ocultar').show();
         },
         error: function(error) {
             alert('Error al obtener los usuarios');
@@ -20,6 +22,12 @@ const listUsers = () => {
         }
 
     });
+
+};
+
+const ocultar = () => {
+    $('#userList').empty();
+    $('#ocultar').hide();
 };
 
 
