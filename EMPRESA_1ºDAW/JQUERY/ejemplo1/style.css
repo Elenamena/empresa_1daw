@@ -1,0 +1,17 @@
+#cargar {
+    width: 120px;
+    height: 30px;
+    background-color:coral;
+    border-radius: 10px;
+}
+
+#ocultar {
+    width: 90px;
+    height: 20px;
+    background-color:rgb(240, 160, 131);
+    border-radius: 10px;
+    font-size: 10px;
+    margin-left: 25px;
+}
+
+
