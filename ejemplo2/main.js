@@ -7,9 +7,11 @@ $(document).ready(function() {
             success: function(respuesta) {
                 $("#resultado").html(respuesta);
             },
-            error:
-        })
-    })
+            error: function(error) {
+                $("#resultado").html("Error: " + error);
+            }
+        });
+    });
 });
 
 
