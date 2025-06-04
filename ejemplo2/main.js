@@ -17,7 +17,7 @@ $(document).ready(function() {
                 }
             },
             error: function(error) {
-                $("#resultado").html("Error: " + error);
+                $("#lista").html("Error: " + error);
             }
         });
     });
