@@ -16,7 +16,7 @@ $(document).ready(function() {
             });
         },
         error: function(error) {
-            alert('Error al obtener los usuarios');
+            alert('Error al cargar los usuarios');
         }
  
     });
