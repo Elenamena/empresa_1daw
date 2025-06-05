@@ -1,0 +1,8 @@
+#usuarios {
+    width: 120px;
+    height: 30px;
+    background-color:coral;
+    border-radius: 10px;
+    border-color: coral;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}

@@ -9,7 +9,7 @@ $(document).ready(function() {
         success: function(usuarios) {
             $('#usuarios').empty();
 
-            $('#usuarios').append('<option value="">-- Selecciona un usuario --</option>');
+            $('#usuarios').append('<option value="">Selecciona un usuario</option>');
 
             usuarios.forEach(function(usuario) {
                 $('#usuarios').append(`<option value="${usuario.id}">${usuario.name}</option>`);
@@ -37,7 +37,7 @@ $(document).ready(function() {
             success: function(posts) {
                 $('#posts').empty();
 
-                $('#usuarios').append('<option value="">-- Selecciona un usuario --</option>');
+                $('#usuarios').append('<option value="">Selecciona un usuario</option>');
 
                 posts.forEach(function(posts) {
                     $('#posts').append(`<li><strong>${post.title}</strong><br>${post.body}</li>`);
