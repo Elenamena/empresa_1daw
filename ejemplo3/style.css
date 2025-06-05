@@ -11,9 +11,9 @@
 #ocultar {
     width: 120px;
     height: 30px;
-    background-color:rgb(149, 224, 119);
+    background-color:rgb(174, 231, 152);
     border-radius: 10px;
-    border-color: rgb(149, 224, 119);
+    border-color: rgb(174, 231, 152);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
