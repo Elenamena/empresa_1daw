@@ -2,9 +2,9 @@
 #usuarios {
     width: 120px;
     height: 30px;
-    background-color:coral;
+    background-color:rgb(149, 224, 119);
     border-radius: 10px;
-    border-color: coral;
+    border-color: rgb(149, 224, 119);
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
