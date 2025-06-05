@@ -3,11 +3,13 @@ $(document).ready(function() {
 
     $.ajax( {
         type: 'GET',
-        url: `https://jsonplaceholder.typicode.com/users`,
+        url: 'https://jsonplaceholder.typicode.com/users',
         contentType: 'application/json',
         async: true,
         success: function(usuarios) {
             $('#usuarios').empty();
+
+            $('#usuarios').append('<option value="">Selecciona un usuario</option>');
 
             usuarios.forEach(function(usuario) {
                 $('#usuarios').append(`<option value="${usuario.id}">${usuario.name}</option>`);
@@ -22,7 +24,7 @@ $(document).ready(function() {
     $('#usuarios').change(function() {
         const usuarioId = $(this).val();
 
-        if (usuarioId === "") {
+        if (usuarioId === '') {
             $('#posts').empty();
             return;
         }
