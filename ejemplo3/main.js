@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+const cargar = () => {
 
     $.ajax( {
         type: 'GET',
@@ -21,11 +21,16 @@ $(document).ready(function() {
  
     });
 
+};
+
+$(document).ready(function() {
+
     $('#usuarios').change(function() {
         const usuarioId = $(this).val();
 
         if (usuarioId === '') {
             $('#posts').empty();
+            $('#ocultar').hide();
             return;
         }
 
@@ -36,8 +41,6 @@ $(document).ready(function() {
             async: true,
             success: function(posts) {
                 $('#posts').empty();
-
-                $('#usuarios').append('<option value="">Selecciona un usuario</option>');
 
                 posts.forEach(function(post) {
                     $('#posts').append(`<li><strong>${post.title}</strong><br>${post.body}</li>`);
@@ -52,5 +55,11 @@ $(document).ready(function() {
     });
 
 });
+
+const ocultar = () => {
+    $('#posts').empty();
+    $('#ocultar').hide();
+    $('#usuarios').val('');
+}
 
 
