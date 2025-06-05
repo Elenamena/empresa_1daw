@@ -31,7 +31,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'GET',
-            url: 'https://jsonplaceholder.typicode.com/users',
+            url: 'https://jsonplaceholder.typicode.com/posts?userId=${userId}',
             contentType: 'application/json',
             async: true,
             success: function(posts) {
