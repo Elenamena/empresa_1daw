@@ -2,7 +2,13 @@
     width: 120px;
     height: 30px;
     background-color:aquamarine;
-    border-radius: 10px;
+    border-radius: 12px;
     border-color: aquamarine;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
+
+h2 {
+    color: rgb(183, 125, 238);
+}
+
+

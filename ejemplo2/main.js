@@ -9,10 +9,10 @@ $(document).ready(function() {
 
                 for(let i = 0; i < 10; i++) {
                     const tarea = data[i];
-                    const estado = tarea.completed ? "Completada" : "Pendiente";
+                    const estado = tarea.completed ? "Tarea completada" : "Tarea pendiente";
 
                   $("#listaTareas").append(
-                    `<li class="${estado}"><strong>ID:</strong> ${tarea.id} - <strong>Título:</strong> ${tarea.title}(${estado})</li>`
+                    `<li><strong>ID:</strong> ${tarea.id} - <strong>Título:</strong> ${tarea.title} (${estado})</li>`
                   );
                 }
             },
