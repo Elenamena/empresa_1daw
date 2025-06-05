@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     $.ajax( {
         type: 'GET',
-        url: 'https://jsonplaceholder.typicode.com/users',
+        url: `https://jsonplaceholder.typicode.com/users`,
         contentType: 'application/json',
         async: true,
         success: function(usuarios) {
@@ -31,7 +31,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'GET',
-            url: 'https://jsonplaceholder.typicode.com/posts?userId=${userId}',
+            url: `https://jsonplaceholder.typicode.com/posts?userId=${userId}`,
             contentType: 'application/json',
             async: true,
             success: function(posts) {
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
                 $('#usuarios').append('<option value="">Selecciona un usuario</option>');
 
-                posts.forEach(function(posts) {
+                posts.forEach(function(post) {
                     $('#posts').append(`<li><strong>${post.title}</strong><br>${post.body}</li>`);
                 });
             },
