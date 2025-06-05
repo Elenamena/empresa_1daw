@@ -1,5 +1,8 @@
+
 $(document).ready(function() {
+
     $('#cargar').click(function() {
+        
         $.ajax( {
         type: 'GET',
         url: 'https://jsonplaceholder.typicode.com/users',
@@ -19,11 +22,11 @@ $(document).ready(function() {
         error: function(error) {
             alert('Error al obtener los usuarios');
         }
-
+ 
     });
 
     });
-    
+
 });
 
 
