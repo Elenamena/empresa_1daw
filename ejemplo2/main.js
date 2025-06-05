@@ -2,8 +2,10 @@
 $(document).ready(function() {
     $("#cargar").click(function() {
         $.ajax ( {
-            url: "https://jsonplaceholder.typicode.com/todos",
             type: "GET",
+            url: "https://jsonplaceholder.typicode.com/todos",
+            contentType: 'application/json',
+            async: true,
             success: function(data) {
                 $("#listaTareas").empty(); 
 
