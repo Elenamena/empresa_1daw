@@ -1,30 +1,24 @@
 
 $(document).ready(function() {
 
-    $('#cargar').click(function() {
-        
         $.ajax( {
         type: 'GET',
         url: 'https://jsonplaceholder.typicode.com/users',
         contentType: 'application/json',
         async: true,
-        success: function(data) {
-            $('#userList').empty();
+        success: function(usuarios) {
+            $('#usuarios').empty();
 
-            data.forEach(usuario => {
-                $('#userList').append(
-                    `<li><strong>${usuario.name}</strong> (${usuario.email})</li>`
-                );
+            $('#usuarios').append('<option value="">-- Selecciona un usuario --</option>');
+
+            usuarios.forEach(function(usuario) {
+                $('#usuarios').append(`<option value="${usuario.id}">${usuario.name}</option>`);
             });
-
-            $('#ocultar').show();
         },
         error: function(error) {
             alert('Error al obtener los usuarios');
         }
  
-    });
-
     });
 
 });
