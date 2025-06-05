@@ -9,8 +9,6 @@ $(document).ready(function() {
         success: function(usuarios) {
             $('#usuarios').empty();
 
-            $('#usuarios').append('<option value="">Selecciona un usuario</option>');
-
             usuarios.forEach(function(usuario) {
                 $('#usuarios').append(`<option value="${usuario.id}">${usuario.name}</option>`);
             });
@@ -31,7 +29,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'GET',
-            url: `https://jsonplaceholder.typicode.com/posts?userId=${userId}`,
+            url: `https://jsonplaceholder.typicode.com/posts?userId=${usuarioId}`,
             contentType: 'application/json',
             async: true,
             success: function(posts) {
