@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-        $.ajax( {
+    $.ajax( {
         type: 'GET',
         url: 'https://jsonplaceholder.typicode.com/users',
         contentType: 'application/json',
@@ -16,9 +16,19 @@ $(document).ready(function() {
             });
         },
         error: function(error) {
-            alert('Error al cargar los usuarios');
+            alert('Error al cargar los usuarios'); 
         }
  
+    });
+
+    $('#usuarios').change(function() {
+        const usuarioId = $(this).val();
+
+        if (usuarioId) {
+            $('#posts').empty();
+            return;
+        }
+
     });
 
 });
