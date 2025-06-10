@@ -1,0 +1,22 @@
+[
+    {
+        "codigo": 1,
+        "nombre": "aa",
+        "precio": "10.00€",
+        "descripcion": "Descripción del producto aa"
+    },
+    {
+        "codigo": 2,
+        "nombre": "bb",
+        "precio": "20.00€",
+        "descripcion": "Descripción del producto bb"
+    },
+    {
+        "codigo": 3,
+        "nombre": "cc",
+        "precio": "30.00€",
+        "descripcion": "Descripción del producto cc"
+    }
+]
+
+
