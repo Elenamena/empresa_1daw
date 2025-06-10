@@ -1,15 +1,15 @@
 ## ESTRUCTURA DEL PROYECTO
 
 # index.html
-Página principal con el formulario y la interfaz
+Página principal y visible con el formulario
 
 # style.css
 Estilo de la página
 
 # datos.json
-Datos de productos
+Datos de los productos
 
 # main.js
-Código JS con JQuery y AJAX
+Código JS con JQuery y AJAX donde encontramos la interfaz
 
 
