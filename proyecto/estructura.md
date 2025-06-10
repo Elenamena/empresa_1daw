@@ -4,7 +4,7 @@
 Página principal con el formulario y la interfaz
 
 # style.css
-Estilo a la página
+Estilo de la página
 
 # main.js
 Código JS con JQuery y AJAX
