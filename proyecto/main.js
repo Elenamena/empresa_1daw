@@ -132,6 +132,11 @@ $("#escanear").click(function() {
     }
 });
 
-$
+
+$("#detener").click(function() {
+    vid.reset();
+    escan = false;
+    $("#camara").addClass("d-none");
+});
 
 
