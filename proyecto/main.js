@@ -7,7 +7,7 @@ fetch("productos.json")
     .then(response => response.json())
     .then(data => productos = data)
     .catch(error => console.error("Error al cargar productos:", error));
-    
+
 
 $(document).ready(function() {
     
@@ -19,20 +19,20 @@ $(document).ready(function() {
     });
 
     $("#escanear").on('click', function() { 
-        $("#form").removeClass("d-none");
-        $("#camara").addClass("d-none");
+        $("#camara").removeClass("d-none");
+        $("#form").addClass("d-none");
         $("#resultado").addClass("d-none");
         $("#error").addClass("d-none").text("");    
     });
 
     $("#form").submit(function(event) {
         event.preventDefault();
-        let codigo = $("#codigo").val().trim();
+        const codigo = $("#codigo").val().trim();
         buscarProducto(codigo);
     });
 
     $("#simularCodigo").click(function() {
-        const codigo = "1234";
+        const codigo = "2";
         buscarProducto(codigo);
     });
 
