@@ -33,6 +33,12 @@ $(document).ready(function() {
         $("#lista").empty();
     });
 
+    $("#recargar").click(function() {
+        $("#codigo").val("");
+        $("#resultado").addClass("d-none");
+        $("#error").addClass("d-none").text("");
+    });
+
 });
 
 
