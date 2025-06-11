@@ -64,3 +64,12 @@ function buscarProducto(codigo) {
 }
 
 
+function mostrarProducto(producto) {
+    $("#nombre").text(producto.nombre);
+    $("#precio").text(producto.precio);
+    $("#descripcion").text(producto.descripcion);
+    $("#resultado").removeClass("d-none");
+    $("#error").addClass("d-none").text("");
+}
+
+
