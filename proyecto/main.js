@@ -79,3 +79,13 @@ function mostrarError(mensaje) {
 }
 
 
+function agregarLista(producto) {
+    productosBuscados.push(producto);
+    $("#lista").append(`
+        <li class="list-group-item">
+            <strong>${producto.nombre}</strong> - ${producto.precio} - ${producto.descripcion}
+        </li>
+    `);
+}
+
+
