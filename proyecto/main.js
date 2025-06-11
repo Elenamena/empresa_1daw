@@ -1,6 +1,14 @@
 
 let productosBuscados = [];
 
+let productos = [];
+
+fetch("productos.json")
+    .then(response => response.json())
+    .then(data => productos = data)
+    .catch(error => console.error("Error al cargar productos:", error));
+    
+
 $(document).ready(function() {
     
     $("#busqueda").on('click', function() { 
