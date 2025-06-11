@@ -22,6 +22,37 @@
             <button class="btn btn-success" id="escanear">Escanear código</button>
         </div>
 
+        <form id="form" class="mb-3 d-none">
+            <div class="input-group">
+                <input type="text" class="form-control" id="codigo" placeholder="Introduce el código" required>
+                <button class="btn btn-secondary" type="submit">Buscar</button>
+            </div>
+        </form>
+
+        <div id="camara" class="d-none mb-3">
+            <p>Escaneo con cámara</p>
+            <input type="file" accept="image/*" capture="environment" class="form-control">
+            <button class="btn btn-secondary mb-2" id="simularCodigo">Simular código escaneado</button>
+        </div>
+
+        <div id="error" class="text-danger fw-bold mb-3 d-none"></div>
+
+        <div id="resultado" class="card d-none">
+            <div class="card-body">
+                <h5 class="card-title">Información del producto</h5>
+                <p><strong>Nombre: </strong> <span id="nombre"></span></p>
+                <p><strong>Precio: </strong> <span id="precio"></span></p>
+                <p><strong>Descripción: </strong> <span id="descripcion"></span></p>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h4>Productos buscados</h4>
+            <ul id="lista" class="list-group mb-3"></ul>
+            <button class="btn btn-outline-info me-2" id="reiniciar">Reiniciar lista</button>
+            <button class="btn btn-outline-warning" id="recargar">Busca otro producto</button>
+        </div>
+
     </div>
 
     
