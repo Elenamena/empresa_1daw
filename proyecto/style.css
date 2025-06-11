@@ -23,4 +23,16 @@ form {
     margin-top: 10px;
 }
 
+footer {
+  margin-top: 2px;
+  justify-content: center;
+  background-color: #212529;
+  color: white;
+}
+
+footer p {
+    margin: 0;
+    justify-content: center;
+}
+
 
