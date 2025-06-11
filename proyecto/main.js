@@ -42,3 +42,8 @@ $(document).ready(function() {
 });
 
 
+function buscarProducto(codigo) {
+    $.ajax({
+}
+
+
