@@ -2,7 +2,7 @@
 # ESTRUCTURA DEL PROYECTO
 
 ## index.html
-Página principal y visible con el formulario, hecho con HTML.
+Página principal y visible con el formulario, hecho con HTML y Bootstrap.
 
 ## style.css
 Estilo de la página, hecho con CSS.
