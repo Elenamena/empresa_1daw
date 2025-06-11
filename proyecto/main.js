@@ -44,6 +44,23 @@ $(document).ready(function() {
 
 function buscarProducto(codigo) {
     $.ajax({
+        type: 'GET',
+        url: 'https://jsonplaceholder.typicode.com/users',
+        contentType: 'application/json',
+        async: true,
+        success: function(data) {
+            const producto = data.productos.find(item => item.id == codigo);
+            if(producto) {
+                mostrarProducto(producto);
+                agregarLista(producto);
+            } else {
+                mostrarError("Producto no encontrado");
+            }
+        },
+        error: function() {
+            mostrarError("Error al buscar el producto");
+        }
+    });
 }
 
 
