@@ -3,26 +3,43 @@ let productosBuscados = [];
 
 let productos = [];
 
-const codeReader = new ZXing.BrowserMultiFormatReader();
-
-let escaneando = false;
-
 
 fetch("productos.json")
     .then(response => response.json())
-    .then(data => productos = data);
+    .then(data => productos = data)
+    .catch(error => console.error("Error al cargar productos: ", error));
 
 
     $(document).ready(function () {
+
+      const vid = new ZXing.BrowserMultiFormatReader();
+
+      let escaneando = false;
+
         $("#busqueda").click(() => {
-            ocultarTodo();
             $("#form").removeClass("d-none");
+            $("#camara, #resultado, #error, #opcionesIniciales").addClass("d-none");
         });
 
         $("#escanear").click(() => {
-            ocultarTodo();
-            $("#camara").removeClass("d-none");
-            iniciarEscaneo();
+            $("#form, #resultado, #error, #opcionesIniciales").addClass("d-none");
+          $("#camara").removeClass("d-none");
+
+          if (!escaneando) {
+            escaneando = true;
+            vid.listVideoInputDevices()
+                .then(videoInputDevices => {
+                    const selectedDeviceId = videoInputDevices[0].deviceId;
+                    vid.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
+                        if (result) {
+                            vid.reset();
+                            escaneando = false;
+                            buscarProducto(result.text);
+                        }
+                    });
+                })
+                .catch(err => mostrarError("Error al acceder a la cámara"));
+            }
         });
 
         $("#form").submit(function (e) {
