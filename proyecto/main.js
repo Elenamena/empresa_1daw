@@ -97,3 +97,41 @@ function agregarLista(producto) {
 }
 
 
+const vid = new ZXing.BrowserMultiFormatReader();
+let escan = false;
+
+$("#escanear").click(function() {
+    $("#camara").removeClass("d-none");
+    $("#form").addClass("d-none");
+    $("#resultado").removeClass("d-none");
+    $("#error").addClass("d-none").text("");
+
+    if (!escan) {
+        escan = true;
+        vid
+            .listVideoInputDevices()
+            .then(videoInputDevices => {
+                const selectedDeviceId = videoInputDevices[0].deviceId;
+
+                if(selectedDeviceId) {
+                    vid.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
+                        if (result) {
+                            vid.reset();
+                            scan = false;
+                            buscarProducto(result.text);
+                        }
+                    });
+                } else {
+                    mostrarError("No se encontró la  cámara");
+                }   
+            })
+            .catch(err => {
+                console.error(err);
+                mostrarError("Error al acceder a la cámara");
+            });
+    }
+});
+
+$
+
+
