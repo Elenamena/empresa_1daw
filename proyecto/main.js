@@ -73,3 +73,9 @@ function mostrarProducto(producto) {
 }
 
 
+function mostrarError(mensaje) {
+    $("#error").removeClass("d-none").text(mensaje);
+    $("#resultado").addClass("d-none");
+}
+
+
