@@ -43,12 +43,16 @@ fetch("datos.json") // Datos desde JSON
         });
 
 
-        $("#reiniciar").click(() => {
+        $("#reiniciar").click(() => { // Reiniciar la página
             productosBuscados = [];
             $("#lista").empty();
             ocultarTodo();
+            $("#info").addClass("d-none");
         });
-        
+
+
+        $("#camara").on("hidden.bs.modal", () => detenerEscaneo()); // Cerrar cámara
+
     });
 
 
