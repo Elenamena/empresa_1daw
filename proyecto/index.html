@@ -20,10 +20,12 @@
 
         <h1 class="mb-5">Escáner de código de barras</h1>
 
+
         <div id="opciones">
             <button class="btn btn-primary me-2" id="busqueda">Buscar código</button>
             <button class="btn btn-success" id="escanear" data-bs-toggle="modal" data-bs-target="#modalCamara">Escanear código</button>
         </div>
+
 
         <form id="formBusqueda" class="mb-4 d-none">
             <div class="input-group mb-3">
@@ -32,7 +34,9 @@
             </div>
         </form>
 
+
         <div id="error" class="text-danger fw-bold mb-3 d-none"></div>
+
 
         <div id="info" class="card d-none mb-4">
             <div class="card-body">
@@ -43,6 +47,7 @@
             </div>
         </div>
 
+
         <div class="d-none" id="listaProductos">
             <h4>Productos buscados</h4>
             <ul id="lista" class="list-group mb-3"></ul>
@@ -50,6 +55,7 @@
             <button class="btn btn-outline-warning" id="recargar">Busca otro producto</button>
         </div>
 
+        
         <div class="modal fade" id="camara" tabindex="-1" aria-labelledby="camaraLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
