@@ -3,49 +3,32 @@ let productosBuscados = [];
 
 let productos = [];
 
+let escaneando = false;
 
-fetch("productos.json")
+const lector = new ZXing.BrowserMultiFormatReader();
+
+
+fetch("datos.json") // Datos desde JSON
     .then(response => response.json())
     .then(data => productos = data)
-    .catch(error => console.error("Error al cargar productos: ", error));
+    .catch(error => console.error("Error : ", error));
 
 
     $(document).ready(function () {
 
-      const vid = new ZXing.BrowserMultiFormatReader();
-
-      let escaneando = false;
-
-        $("#busqueda").click(() => {
+        $("#busqueda").click(() => { // Formulario de búsqueda
+            ocultarTodo();
             $("#form").removeClass("d-none");
-            $("#camara, #resultado, #error, #opcionesIniciales").addClass("d-none");
         });
 
-        $("#escanear").click(() => {
-            $("#form, #resultado, #error, #opcionesIniciales").addClass("d-none");
-          $("#camara").removeClass("d-none");
-
-          if (!escaneando) {
-            escaneando = true;
-            vid.listVideoInputDevices()
-                .then(videoInputDevices => {
-                    const selectedDeviceId = videoInputDevices[0].deviceId;
-                    vid.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
-                        if (result) {
-                            vid.reset();
-                            escaneando = false;
-                            buscarProducto(result.text);
-                        }
-                    });
-                })
-                .catch(err => mostrarError("Error al acceder a la cámara"));
-            }
+        $("#escanear").click(() => { // Escaneo de código de barras
+            iniciarEscaneo();
         });
 
-        $("#form").submit(function (e) {
+        $("#formBusqueda").submit(function (e) {
             e.preventDefault();
             const codigo = $("#codigo").val().trim();
-            buscarProducto(codigo);
+            if (codigo) buscarProducto(codigo);
         });
 
         $("#detener").click(() => detenerEscaneo());
