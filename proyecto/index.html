@@ -21,13 +21,13 @@
         <h1 class="mb-5">Escáner de código de barras</h1>
 
 
-        <div id="opciones"> // Opciones principales que se pueden realizar
+        <div id="opciones"> <!-- Opciones principales que se pueden realizar-->
             <button class="btn btn-primary me-2" id="busqueda">Buscar código</button>
             <button class="btn btn-success" id="escanear" data-bs-toggle="modal" data-bs-target="#modalCamara">Escanear código</button>
         </div>
 
 
-        <form id="formBusqueda" class="mb-4 d-none"> // Formulario para buscar un producto por código
+        <form id="formBusqueda" class="mb-4 d-none"> <!-- Formulario para buscar un producto por código-->
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="codigo" placeholder="Introduce el código" required>
                 <button class="btn btn-secondary" type="submit">Buscar</button>
@@ -35,10 +35,10 @@
         </form>
 
 
-        <div id="error" class="text-danger fw-bold mb-3 d-none"></div> // Mensaje de error que se muestra si no se encuentra el producto
+        <div id="error" class="text-danger fw-bold mb-3 d-none"></div> <!-- Mensaje de error que se muestra si no se encuentra el producto-->
+>
 
-
-        <div id="info" class="card d-none mb-4"> // Información del producto buscado
+        <div id="info" class="card d-none mb-4"> <!-- Información del producto buscado-->
             <div class="card-body">
                 <h5 class="card-title">Información del producto</h5>
                 <p><strong>Nombre: </strong> <span id="nombre"></span></p>
@@ -48,7 +48,7 @@
         </div>
 
 
-        <div class="d-none" id="listaProductos"> // Lista de productos buscados
+        <div class="d-none" id="listaProductos"> <!-- Lista de productos buscados-->
             <h4>Productos buscados</h4>
             <ul id="lista" class="list-group mb-3"></ul>
             <button class="btn btn-outline-info me-2" id="reiniciar">Reiniciar lista</button>
@@ -56,7 +56,7 @@
         </div>
 
 
-        <div class="modal fade" id="camara" tabindex="-1" aria-labelledby="camaraLabel" aria-hidden="true"> // Para escanear el código de barras con la cámara
+        <div class="modal fade" id="camara" tabindex="-1" aria-labelledby="camaraLabel" aria-hidden="true"> <!-- Para escanear el código de barras con la cámara-->
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -75,7 +75,7 @@
 
     </div>
 
-    <footer class="py-4 mt-5 text-center bg-primary text-white"> // Footer
+    <footer class="py-4 mt-5 text-center bg-primary text-white"> <!-- Footer-->
         <p>Elena Mena Romero</p>
         <p>Lector de código de barras</p>
     </footer>
