@@ -47,7 +47,7 @@ fetch("datos.json") // Datos desde JSON
             productosBuscados = [];
             $("#lista").empty();
             ocultarTodo();
-            $("#info").addClass("d-none");
+            $("#lista").addClass("d-none");
         });
 
 
@@ -56,9 +56,6 @@ fetch("datos.json") // Datos desde JSON
     });
 
 
-    function ocultarTodo() {
-        $("#form, #camara, #resultado, #error").addClass("d-none");
-    }
 
     function buscarProducto(codigo) {
         const producto = productos.find(p => p.codigo.toString() === codigo);
@@ -75,45 +72,62 @@ fetch("datos.json") // Datos desde JSON
         $("#nombre").text(producto.nombre);
         $("#precio").text(producto.precio);
         $("#descripcion").text(producto.descripcion);
-        $("#resultado").removeClass("d-none");
+        $("#info").removeClass("d-none");
         $("#error").addClass("d-none");
     }
 
+
     function mostrarError(msg) {
         $("#error").removeClass("d-none").text(msg);
-        $("#resultado").addClass("d-none");
+        $("#info").addClass("d-none");
     }
+
+
+    function ocultarTodo() {
+        $("#formBusqueda, #info, #error").addClass("d-none");
+    }
+
 
     function agregarLista(producto) {
         productosBuscados.push(producto);
         $("#lista").append(`<li class="list-group-item">
             <strong>${producto.nombre}</strong> - ${producto.precio} - ${producto.descripcion}
         </li>`);
+        $("#listaProductos").removeClass("d-none");
     }
 
 
 
     function iniciarEscaneo() {
         if (escaneando) return;
+
         escaneando = true;
 
-        codeReader.listVideoInputDevices().then(devices => {
-            const deviceId = devices[0]?.deviceId;
-            if (!deviceId) return mostrarError("No se encontró la cámara");
+        lector.listVideoInputDevices()
+            .then(devices => {
+            if (devices.length === 0) {
+                mostrarError("No se encontró la cámara");
+                return;
+            }
 
-            codeReader.decodeFromVideoDevice(deviceId, 'video', (result, err) => {
+            const idCamara = devices[0].deviceId; // Se usa la primera cámara disponible
+
+            lector.decodeFromVideoDevice(idCamara, 'video', (result, err) => {
                 if (result) {
                     detenerEscaneo();
-                    buscarProducto(result.text);
+                    $("#camara").modal("hide");
+                    buscarProducto(result.text); // Buscar producto al escanear
                 }
             });
-        }).catch(err => mostrarError("Error al acceder a la cámara"));
+                    
+            
+        })  .catch(err => mostrarError("Error al acceder a la cámara"));
     }
 
+
     function detenerEscaneo() {
-        codeReader.reset();
+        lector.reset();
         escaneando = false;
-        $("#camara").addClass("d-none");
     }
 
 
