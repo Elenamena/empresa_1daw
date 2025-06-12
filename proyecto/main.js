@@ -21,28 +21,34 @@ fetch("datos.json") // Datos desde JSON
             $("#form").removeClass("d-none");
         });
 
+
         $("#escanear").click(() => { // Escaneo de código de barras
             iniciarEscaneo();
         });
 
-        $("#formBusqueda").submit(function (e) {
+
+        $("#formBusqueda").submit(function (e) { // Búsqueda por código
             e.preventDefault();
             const codigo = $("#codigo").val().trim();
             if (codigo) buscarProducto(codigo);
         });
 
-        $("#detener").click(() => detenerEscaneo());
 
-        $("#recargar").click(() => {
-            $("#codigo").val("");
+        $("#detener").click(() => detenerEscaneo()); // Detener escaneo
+
+
+        $("#recargar").click(() => { // Recargar página
             ocultarTodo();
+            $("#codigo").val("");
         });
+
 
         $("#reiniciar").click(() => {
             productosBuscados = [];
             $("#lista").empty();
             ocultarTodo();
         });
+        
     });
 
 
