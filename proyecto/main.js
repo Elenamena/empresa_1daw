@@ -7,7 +7,7 @@ let escaneando = false;
 
 const lector = new ZXing.BrowserMultiFormatReader();
 
-
+ 
 fetch("datos.json") // Datos desde JSON
     .then(response => response.json())
     .then(data => productos = data)
@@ -16,13 +16,17 @@ fetch("datos.json") // Datos desde JSON
 
     $(document).ready(function () {
 
+        ocultarTodo(); // Ocultar todo al inicio
+
         $("#busqueda").click(() => { // Formulario de búsqueda
             ocultarTodo();
-            $("#form").removeClass("d-none");
+            $("#formBusqueda").removeClass("d-none");
         });
 
 
         $("#escanear").click(() => { // Escaneo de código de barras
+            ocultarTodo();
+            $("#camara").modal("show");
             iniciarEscaneo();
         });
 
@@ -40,6 +44,7 @@ fetch("datos.json") // Datos desde JSON
         $("#recargar").click(() => { // Recargar página
             ocultarTodo();
             $("#codigo").val("");
+            $("#opciones").removeClass("d-none");
         });
 
 
@@ -47,7 +52,7 @@ fetch("datos.json") // Datos desde JSON
             productosBuscados = [];
             $("#lista").empty();
             ocultarTodo();
-            $("#lista").addClass("d-none");
+            $("#opciones").removeClass("d-none");
         });
 
 
@@ -55,6 +60,15 @@ fetch("datos.json") // Datos desde JSON
 
     });
 
+
+
+
+    function ocultarTodo() {
+        $("#formBusqueda").addClass("d-none");
+        $("#info").addClass("d-none");
+        $("#listaProductos").addClass("d-none");
+        $("#error").addClass("d-none");
+    }
 
 
     function buscarProducto(codigo) {
@@ -80,11 +94,6 @@ fetch("datos.json") // Datos desde JSON
     function mostrarError(msg) {
         $("#error").removeClass("d-none").text(msg);
         $("#info").addClass("d-none");
-    }
-
-
-    function ocultarTodo() {
-        $("#formBusqueda, #info, #error").addClass("d-none");
     }
 
 
@@ -115,7 +124,7 @@ fetch("datos.json") // Datos desde JSON
             lector.decodeFromVideoDevice(idCamara, 'video', (result, err) => {
                 if (result) {
                     detenerEscaneo();
-                    $("#camara").modal("hide");
+                    $("#modalCamara").modal("hide");
                     buscarProducto(result.text); // Buscar producto al escanear
                 }
             });
