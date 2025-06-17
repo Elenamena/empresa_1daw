@@ -1,14 +1,25 @@
 
-* {
-    justify-content: center;
-}
-
 body { 
     font-family: Arial, Helvetica, sans-serif;
-    margin: 20px;
     background-color: white;
     color: black;
     justify-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#contenedor {
+    display: flex;
+    flex-direction: column;
+}
+
+#titulo {
+    background-image: linear-gradient(to right, #4682B4, #B0C4DE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #busqueda {
@@ -42,10 +53,6 @@ body {
     font-size: 20px;
 }
 
-.hidden {
-    display: none;
-}
-
 #error {
     color: red;
     margin-top: 3px;
@@ -54,13 +61,16 @@ body {
 
 footer {
     display: flex;
-    margin-top: 40px;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #656fe1;
     color: white;
     height: 60px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 footer p {
@@ -83,9 +93,16 @@ footer p {
 
 #recargar {
     margin-top: 10px;
-    background-color: rgb(209, 164, 50);
+    background-color: rgb(235, 190, 76);
     border-radius: 5px;
-    border-color: rgb(209, 164, 50);
+    border-color: rgb(235, 190, 76);
+}
+
+#ver {
+    margin-top: 10px;
+    background-color: rgb(195, 55, 250);
+    border-radius: 5px;
+    border-color: rgb(195, 55, 250);
 }
 
 #cerrar {
@@ -93,6 +110,13 @@ footer p {
     background-color:rgb(231, 82, 162);
     border-radius: 5px;
     border-color: rgb(231, 82, 162);
+}
+
+#detener {
+    margin-top: 10px;
+    background-color:rgb(255, 106, 20);
+    border-radius: 5px;
+    border-color: rgb(255, 106, 20);
 }
 
 #info{
@@ -116,11 +140,17 @@ footer p {
 }
 
 #opciones {
-    margin-bottom: 20px;
+    margin-top: 70px;
+    margin-bottom: 50px;
 }
 
 #busquedaCodigo {
     margin-bottom: 5px;
+}
+
+
+#formBusqueda, #info, #listaProductos, #error, #cerrar, #detener, #h5 {
+    display: none;
 }
 
 
