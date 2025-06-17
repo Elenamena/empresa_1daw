@@ -18,33 +18,27 @@ fetch("datos.json") // Datos desde JSON
 
         ocultarTodo(); // Ocultar todo al inicio
 
+        $("#opciones").removeClass("d-none"); // Mostrar opciones
+
+
         $("#busqueda").click(() => { // Formulario de búsqueda
             ocultarTodo();
             $("#formBusqueda").removeClass("d-none");
-        });
-
-
-        $("#escanear").click(() => { // Escaneo de código de barras
-            ocultarTodo();
-            $("#camara").modal("show");
-            iniciarEscaneo();
+            $("#codigo").val("").prop("disabled", false).focus(); // Habilita el campo de búsqueda
         });
 
 
         $("#formBusqueda").submit(function (e) { // Búsqueda por código
             e.preventDefault();
             const codigo = $("#codigo").val().trim();
-            if (codigo) buscarProducto(codigo);
+            buscarProducto(codigo);
         });
-
-
-        $("#detener").click(() => detenerEscaneo()); // Detener escaneo
 
 
         $("#recargar").click(() => { // Recargar página
             ocultarTodo();
-            $("#codigo").val("");
-            $("#opciones").removeClass("d-none");
+            $("#formBusqueda").removeClass("d-none");
+            $("#codigo").val("").prop("disabled", false).focus();
         });
 
 
@@ -56,7 +50,30 @@ fetch("datos.json") // Datos desde JSON
         });
 
 
-        $("#camara").on("hidden.bs.modal", () => detenerEscaneo()); // Cerrar cámara
+        $("#ver").click(() => {
+            $("#listaProductos").toggleClass("d-none");
+        }); 
+
+
+        $("#escanear").click(() => { // Escaneo de código de barras
+            ocultarTodo();
+            const aceptar = confirm("¿Permitir acceso a la cámara?");
+            if (aceptar) {
+                $("#camara").modal("show");
+                iniciarEscaneo();
+            } else {
+                $("#opciones").removeClass("d-none");
+            }
+        });
+
+
+        $("#detener").click(() => {
+            detenerEscaneo(); 
+            $("#camara").modal("hide");
+        });
+
+
+        $("#camara").on("hidden.bs.modal", () => detenerEscaneo);
 
     });
 
@@ -68,6 +85,9 @@ fetch("datos.json") // Datos desde JSON
         $("#info").addClass("d-none");
         $("#listaProductos").addClass("d-none");
         $("#error").addClass("d-none");
+        $("#recargar").addClass("d-none");
+        $("reiniciar").addClass("d-none");
+        $("#ver").addClass("d-none");
     }
 
 
@@ -88,6 +108,7 @@ fetch("datos.json") // Datos desde JSON
         $("#descripcion").text(producto.descripcion);
         $("#info").removeClass("d-none");
         $("#error").addClass("d-none");
+        $("#recargar, #ver, #reiniciar").removeClass("d-none");
     }
 
 
@@ -102,9 +123,7 @@ fetch("datos.json") // Datos desde JSON
         $("#lista").append(`<li class="list-group-item">
             <strong>${producto.nombre}</strong> - ${producto.precio} - ${producto.descripcion}
         </li>`);
-        $("#listaProductos").removeClass("d-none");
     }
-
 
 
     function iniciarEscaneo() {
@@ -112,10 +131,9 @@ fetch("datos.json") // Datos desde JSON
 
         escaneando = true;
 
-        lector.listVideoInputDevices()
-            .then(devices => {
+        lector.listVideoInputDevices().then(devices => {
             if (devices.length === 0) {
-                mostrarError("No se encontró la cámara");
+                mostrarError("No se ha encontrado la cámara");
                 return;
             }
 
@@ -124,7 +142,7 @@ fetch("datos.json") // Datos desde JSON
             lector.decodeFromVideoDevice(idCamara, 'video', (result, err) => {
                 if (result) {
                     detenerEscaneo();
-                    $("#modalCamara").modal("hide");
+                    $("camara").modal("hide");
                     buscarProducto(result.text); // Buscar producto al escanear
                 }
             });
