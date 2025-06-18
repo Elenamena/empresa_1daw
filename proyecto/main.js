@@ -6,7 +6,7 @@ $(document).ready(function() {
     $("#info").hide();
 
 
-    $.getJSON("json.json", function(data) {
+    $.getJSON("datos.json", function(data) {
         productos = data;
     });
 
