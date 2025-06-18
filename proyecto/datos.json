@@ -1,22 +1,64 @@
 
 [
     {
-        "codigo": 1,
+        "codigo": "1",
         "nombre": "aa",
         "precio": "10.00€",
         "descripcion": "Descripción del producto aa"
     },
     {
-        "codigo": 2,
+        "codigo": "2",
         "nombre": "bb",
         "precio": "20.00€",
         "descripcion": "Descripción del producto bb"
     },
     {
-        "codigo": 3,
+        "codigo": "3",
         "nombre": "cc",
         "precio": "30.00€",
         "descripcion": "Descripción del producto cc"
+    },
+    {
+        "codigo": "4",
+        "nombre": "dd",
+        "precio": "40.00€",
+        "descripcion": "Descripción del producto dd"
+    },
+    {
+        "codigo": "5",
+        "nombre": "ee",
+        "precio": "50.00€",
+        "descripcion": "Descripción del producto ee"
+    },
+    {
+        "codigo": "6",
+        "nombre": "ff",
+        "precio": "60.00€",
+        "descripcion": "Descripción del producto ff"
+    },
+    {
+        "codigo": "7",
+        "nombre": "gg",
+        "precio": "70.00€",
+        "descripcion": "Descripción del producto gg"
+    },
+    {
+        "codigo": "8",
+        "nombre": "hh",
+        "precio": "80.00€",
+        "descripcion": "Descripción del producto hh"
+    },
+    {
+        "codigo": "9",
+        "nombre": "ii",
+        "precio": "90.00€",
+        "descripcion": "Descripción del producto ii"
+    },
+    {
+        "codigo": "10",
+        "nombre": "jj",
+        "precio": "100.00€",
+        "descripcion": "Descripción del producto jj"
     }
 ]
 
