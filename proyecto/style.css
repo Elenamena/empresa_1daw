@@ -11,46 +11,23 @@ body {
     flex-direction: column;
 }
 
+
+#busqueda {
+    background-color: rgb(184, 204, 227);
+    border-radius: 0%;
+    border-color: rgb(184, 204, 227);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.165);
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
 #contenedor {
     display: flex;
     flex-direction: column;
 }
 
 #titulo {
-    background-image: linear-gradient(to right, #4682B4, #B0C4DE);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#busqueda {
-    background-color: rgb(188, 135, 238);
-    border-radius: 5px;
-    border-color: rgb(188, 135, 238);
-}
-
-#escanear {
-    background-color: rgb(248, 149, 138);
-    border-radius: 5px;
-    border-color: rgb(248, 149, 138);
-}
-
-#formBusqueda {
-    margin-bottom: 70px;
-    margin-top: 10px;
-}
-
-#buscar {
-    background-color: #0373e4;
-    border-radius: 8px;
-    border-color: #0373e4;
-    font-size: 12px;
-    text-align: center;
-    width: 50px;
-    height: 21px;
-}
-
-#resultado {
-    font-size: 20px;
+    color: black;
 }
 
 #error {
@@ -64,7 +41,7 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #656fe1;
+    background-color: rgb(184, 204, 227);
     color: white;
     height: 60px;
     position: fixed;
@@ -77,80 +54,16 @@ footer p {
     margin: 0;
 }
 
-#detener {
-    margin-top: 10px;
-    background-color: rgb(113, 199, 202);
-    border-radius: 5px;
-    border-color: rgb(113, 199, 202);
-}
-
-#reiniciar {
-    margin-top: 10px;
-    background-color: darkolivegreen;
-    border-radius: 5px;
-    border-color: darkolivegreen;
-}
-
-#recargar {
-    margin-top: 10px;
-    background-color: rgb(235, 190, 76);
-    border-radius: 5px;
-    border-color: rgb(235, 190, 76);
-}
-
-#ver {
-    margin-top: 10px;
-    background-color: rgb(195, 55, 250);
-    border-radius: 5px;
-    border-color: rgb(195, 55, 250);
-}
-
-#cerrar {
-    margin-top: 10px;
-    background-color:rgb(231, 82, 162);
-    border-radius: 5px;
-    border-color: rgb(231, 82, 162);
-}
-
-#detener {
-    margin-top: 10px;
-    background-color:rgb(255, 106, 20);
-    border-radius: 5px;
-    border-color: rgb(255, 106, 20);
-}
-
 #info{
-    background-color: rgb(134, 176, 224);
+    background-color: rgb(184, 204, 227);
     width: 60%;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.349);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.297);
 }
 
 #info p, h3 {
     margin: 0;
     padding: 10px;
-}
-
-#codigo {
-    border-radius: 8px;
-    font-size: 12px;
-    text-align: center;
-    width: 120px;
-    height: 15px;
-}
-
-#opciones {
-    margin-top: 70px;
-    margin-bottom: 50px;
-}
-
-#busquedaCodigo {
-    margin-bottom: 5px;
-}
-
-
-#formBusqueda, #info, #listaProductos, #error, #cerrar, #detener, #h5 {
-    display: none;
 }
 
 
